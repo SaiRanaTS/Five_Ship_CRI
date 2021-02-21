@@ -61,22 +61,23 @@ def relative_Cor_TarS(VTx, VTy, Xot, Yot):
     def comp_fun(vr3):
         if tyu >= 0 and tyv >= 0:
             res = math.atan(vr3)
-            #print('Option 1')
+            print('Option 1')
             return (res)
         elif tyu < 0 and tyv < 0:
             res = math.atan(vr3) + math.pi
-            #print('Option 2')
+            print('Option 2')
             return (res)
         elif tyu >= 0 and tyv < 0:
             res = math.atan(vr3) + math.pi
-            #print('Option 3')
+            print('Option 3')
             return (res)
         elif tyu < 0 and tyv >= 0:
             res = math.atan(vr3) + 2 * (math.pi)
-            #print('Option 4')
+            print('Option 4')
             return (res)
 
     re_theta = comp_fun(Vr_radio_pass)
+
     theta_OT_Deg = ((180 / (math.pi)) * re_theta)
 
     xyu = Xot
@@ -91,19 +92,19 @@ def relative_Cor_TarS(VTx, VTy, Xot, Yot):
     def true_fun(vr5):
         if xyu >= 0 and yyu >= 0:
             res = float(math.atan(vr5))
-            #print('Option 1', res)
+            print('Option 1', res)
             return (res)
         elif xyu < 0 and yyu < 0:
             res = float(math.atan(vr5) + math.pi)
-            #print('Option 2')
+            print('Option 2')
             return (res)
         elif xyu >= 0 and yyu < 0:
             res = float(math.atan(vr5) + math.pi)
-            #print('Option 3')
+            print('Option 3')
             return (res)
         elif xyu < 0 and yyu >= 0:
             res = float(math.atan(vr5) + 2 * (math.pi))
-            #print('Option 4')
+            print('Option 4')
             return (res)
 
     real_theta = true_fun(xotratio_deg)
@@ -137,8 +138,12 @@ def Relat_Motion_para(Xo, Yo, Xt, Yt, theta_o, theta_ot, theta_real, Vott):
     top_fun = math.cos(math.radians(theta_OT_Deg - theta_Real_Deg - 180))
     TCPA_1 = ((D_Btwn * top_fun) / Vot_re)
     TCPA_rnd = round(TCPA_1, 3)
-    #print('alpha t : ', theta_Real_Deg)
-    #print('Theat 0 : ', DO)
+    print('alpha t : ', theta_Real_Deg)
+    print('Theat 0 : ', DO)
+    if (theta_Real_Deg > 360):
+        theta_Real_Deg = theta_Real_Deg -360
+    else:
+        pass
     alpha_OT = round((theta_Real_Deg - DO + 360), 3)
     result_3 = (DCPA_rnd, TCPA_rnd, alpha_OT, D_Btwn)
     return result_3
@@ -152,28 +157,28 @@ def d1_and_d2(alphaot, k):
         aph_ot_d1 = aph_ot_d1 - 360
     else:
         aph_ot_d1 = alphaot
-    #print('aph_ot_d1 : ', aph_ot_d1)
+    print('aph_ot_d1 : ', aph_ot_d1)
 
     def d1_cal(alp_3):
         if alp_3 >= 0 and alp_3 < 112.5:
             res_d = (1.1 - ((0.2 * alp_3) / 180))
-            #print("Here the value of Alpha OT is ", alp_3, " which lies between 0 and 112.5")
+            print("Here the value of Alpha OT is ", alp_3, " which lies between 0 and 112.5")
             return (res_d)
         elif alp_3 >= 112.5 and alp_3 < 180:
             res_d = (1 - ((0.4 * alp_3) / 180))
-            #print("Here the value of Alpha OT is ", alp_3, " which lies between 112.5 and 180")
+            print("Here the value of Alpha OT is ", alp_3, " which lies between 112.5 and 180")
             return (res_d)
         elif alp_3 >= 180 and alp_3 < 247.5:
             res_d = (1 - ((0.4 * (360 - alp_3)) / 180))
-            #print("Here the value of Alpha OT is ", alp_3, " which lies between 180 and 247.5")
+            print("Here the value of Alpha OT is ", alp_3, " which lies between 180 and 247.5")
             return (res_d)
         elif alp_3 >= 247.5 and alp_3 <= 360:
             res_d = (1.1 - ((0.2 * (360 - alp_3)) / 180))
-            #print("Here the value of Alpha OT is ", alp_3, " which lies between 247.5 and 360")
+            print("Here the value of Alpha OT is ", alp_3, " which lies between 247.5 and 360")
             return (res_d)
 
     d1_u = round((d1_cal(aph_ot_d1)), 3)
-    #print('d1 = ', d1_u)
+    print('d1 = ', d1_u)
     K_u = k
     d2_u = round((K_u * d1_u), 3)
     result_4 = (d1_u, d2_u)
@@ -241,9 +246,9 @@ def MF_Rel_dis(dz1, d2t_l, Di):
     D1_rd = dz1
     D2_rd = d2t_l
     D_rd = Di
-    #print('The D1 value is : ', D1_rd)
-    #print('The D2 value is : ', D2_rd)
-    #print('The D value is : ', D_rd)
+    print('The D1 value is : ', D1_rd)
+    print('The D2 value is : ', D2_rd)
+    print('The D value is : ', D_rd)
     if D2_rd < D_rd:
         Drf = 0
     elif D1_rd <= D_rd and D_rd <= D2_rd:
