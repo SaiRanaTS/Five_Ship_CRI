@@ -37,72 +37,57 @@ print('This is a simple Multi Ship model for initial assessment and evaluation')
 print('For this model we need to have 1. X position of Ship, 2. Y position of Ship, 3. Velocity of Ship, 4. Direction Angle of the Ship and 4. Length of the Ship')
 print(
     '###############################################################################################################################################################')
-osx = float(input('Enter the X Coordinate of Own Ship : '))
-osy = float(input('Enter the Y Coordinate of Own Ship : '))
-osv = float(input('Enter the Speed of Own Ship (Knots): '))
-osa = float(input('Enter the angle of Own Ship (Deg)  : '))
-osl = float(input('Enter the length of Own Ship (Mtr) : '))
 
-print('\nEnter the details for Target Ship 1\n')
-print('---------------------------------------------')
-
-t1sx = float(input('Enter the X Coordinate of Target Ship : '))
-t1sy = float(input('Enter the Y Coordinate of Target Ship : '))
-t1sv = float(input('Enter the Speed of Target Ship (Knots): '))
-t1sa = float(input('Enter the angle of Target Ship (Deg)  : '))
-t1sl = float(input('Enter the length of Target Ship (Mtr) : '))
-
-print('\nEnter the details for Target Ship 2\n')
-print('---------------------------------------------')
-
-t2sx = float(input('Enter the X Coordinate of Target Ship : '))
-t2sy = float(input('Enter the Y Coordinate of Target Ship : '))
-t2sv = float(input('Enter the Speed of Target Ship (Knots): '))
-t2sa = float(input('Enter the angle of Target Ship (Deg)  : '))
-t2sl = float(input('Enter the length of Target Ship (Mtr) : '))
+osx = 1
+osy = 2
+osv = 10
+osa = 60
+osl = 100
 
 
+t1sx = 3
+t1sy = 2
+t1sv = 12
+t1sa = 3
+t1sl = 100
 
-print('\nEnter the details for Target Ship 3\n')
-print('---------------------------------------------')
+t2sx = 10
+t2sy = 3
+t2sv = 10
+t2sa = 320
+t2sl = 100
 
-t3sx = float(input('Enter the X Coordinate of Target Ship : '))
-t3sy = float(input('Enter the Y Coordinate of Target Ship : '))
-t3sv = float(input('Enter the Speed of Target Ship (Knots): '))
-t3sa = float(input('Enter the angle of Target Ship (Deg)  : '))
-t3sl = float(input('Enter the length of Target Ship (Mtr) : '))
 
-print('\nEnter the details for Target Ship 4\n')
-print('---------------------------------------------')
+t3sx = 8
+t3sy = 5
+t3sv = 10
+t3sa = 290
+t3sl = 100
 
-t4sx = float(input('Enter the X Coordinate of Target Ship : '))
-t4sy = float(input('Enter the Y Coordinate of Target Ship : '))
-t4sv = float(input('Enter the Speed of Target Ship (Knots): '))
-t4sa = float(input('Enter the angle of Target Ship (Deg)  : '))
-t4sl = float(input('Enter the length of Target Ship (Mtr) : '))
+t4sx = 5
+t4sy = 2
+t4sv = 10
+t4sa = 140
+t4sl = 100
 
-print('\nEnter the details for Target Ship 5\n')
-print('---------------------------------------------')
-
-t5sx = float(input('Enter the X Coordinate of Target Ship : '))
-t5sy = float(input('Enter the Y Coordinate of Target Ship : '))
-t5sv = float(input('Enter the Speed of Target Ship (Knots): '))
-t5sa = float(input('Enter the angle of Target Ship (Deg)  : '))
-t5sl = float(input('Enter the length of Target Ship (Mtr) : '))
-
+t5sx = 3
+t5sy = 1
+t5sv = 10
+t5sa = 60
+t5sl = 100
 # print('The number of Target Ships are : ', S_No) # Mutli Ship Under construction
 
 ###################################################################################################
 
 
-Own_Ship = Ship_Data(osx, osy, osv, osa, osl)
-Trg1_Ship = Ship_Data(t1sx, t1sy, t1sv, t1sa, t1sl)
-Trg2_Ship = Ship_Data(t2sx, t2sy, t2sv, t2sa, t2sl)
+#Own_Ship = Ship_Data(osx, osy, osv, osa, osl)
+#Trg1_Ship = Ship_Data(t1sx, t1sy, t1sv, t1sa, t1sl)
+#Trg2_Ship = Ship_Data(t2sx, t2sy, t2sv, t2sa, t2sl)
 
 ###################################################################################################
 
-chart = Plot_Chart.Plot(Own_Ship.Xpos, Own_Ship.Ypos, Trg1_Ship.Xpos,Trg2_Ship.Xpos, Trg1_Ship.Ypos,Trg2_Ship.Ypos,Own_Ship.ang, Trg1_Ship.ang,Trg2_Ship.ang)
-chart.show()
+#chart = Plot_Chart.Plot(Own_Ship.Xpos, Own_Ship.Ypos, Trg1_Ship.Xpos,Trg2_Ship.Xpos, Trg1_Ship.Ypos,Trg2_Ship.Ypos,Own_Ship.ang, Trg1_Ship.ang,Trg2_Ship.ang)
+#chart.show()
 ###################################################################################################
 ###################################################################################################
 #Location Append
@@ -135,6 +120,8 @@ t5syl=[]
 steps = 5
 
 t = 0.2
+
+tstp=[0.0,0.2,0.4,0.6,0.8]
 
 for i in range(steps):
     osx = round(osx + (osv*t*(math.cos(math.radians(osa)))),2)
@@ -271,27 +258,119 @@ plt.show()
 ###################################################################################################
 #:-)(-::-)(-::-)(-::-)(-::-)(-::-)(-: CRI Target Ship 1 - Execution Call :-)(-::-)(-::-)(-::-)(-::-)(-::-)(-:
 ###################################################################################################
-osxl=[]
-osyl=[]
-t1sxl=[]
-t1syl=[]
 
-tr1cri=[]
+print('Own Ship Pos:')
+print("X pos : ",osxl)
+print("Y pos : ",osyl)
 
-for i in range(steps):
-    CRI_1=CRI_FunExe.CRI_call(Own_Ship.v, Trg1_Ship.v, osxl[i], osyl[i], t1sxl[i], t1syl[i], Own_Ship.ang, Trg1_Ship.ang)
-    tr1cri.append(CRI_1)
+print('------------------------------')
+
+print('Target Ship 1  Pos:')
+print("X pos : ",t1sxl)
+print("Y pos : ",t1syl)
+
+print('-------------------------------')
+
+
 
 
 print('######################################################################')
 print('######################################################################')
 print('*******************The CRI Index wrt Target Ship 1 *******************')
 
+tr1cri=[]
+
+for i in range(5):
+    CRI_1=CRI_FunExe.CRI_call(osv, t1sv, osxl[i], osyl[i], t1sxl[i], t1syl[i], osa, t1sa)
+    tr1cri.append(CRI_1)
+
 print('CRI index for Target Ship 1 : ', tr1cri)
+
+plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 1")
+plt.plot(tstp,tr1cri)
+plt.xlabel('Time (hr)')
+plt.ylabel('CRI')
+plt.show()
+
 
 print('----------------------------------------------------------------------')
 
-###################################################################################################
-#:-)(-::-)(-::-)(-::-)(-::-)(-::-)(-: CRI Target Ship 2 - Execution Call :-)(-::-)(-::-)(-::-)(-::-)(-::-)(-:
-###################################################################################################
+print('######################################################################')
+print('######################################################################')
+print('*******************The CRI Index wrt Target Ship 2 *******************')
 
+tr2cri=[]
+
+for i in range(5):
+    CRI_2=CRI_FunExe.CRI_call(osv, t2sv, osxl[i], osyl[i], t2sxl[i], t2syl[i], osa, t2sa)
+    tr2cri.append(CRI_2)
+
+print('CRI index for Target Ship 2 : ', tr2cri)
+plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 2")
+plt.plot(tstp,tr2cri)
+plt.xlabel('Time (hr)')
+plt.ylabel('CRI')
+plt.show()
+
+
+print('----------------------------------------------------------------------')
+
+print('######################################################################')
+print('######################################################################')
+print('*******************The CRI Index wrt Target Ship 3 *******************')
+
+tr3cri=[]
+
+for i in range(5):
+    CRI_3=CRI_FunExe.CRI_call(osv, t3sv, osxl[i], osyl[i], t3sxl[i], t3syl[i], osa, t3sa)
+    tr3cri.append(CRI_3)
+
+print('CRI index for Target Ship 3 : ', tr3cri)
+plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 3")
+plt.plot(tstp,tr3cri)
+plt.xlabel('Time (hr)')
+plt.ylabel('CRI')
+plt.show()
+
+
+print('----------------------------------------------------------------------')
+
+print('######################################################################')
+print('######################################################################')
+print('*******************The CRI Index wrt Target Ship 4 *******************')
+
+tr4cri=[]
+
+for i in range(5):
+    CRI_4=CRI_FunExe.CRI_call(osv, t4sv, osxl[i], osyl[i], t4sxl[i], t4syl[i], osa, t4sa)
+    tr4cri.append(CRI_4)
+
+print('CRI index for Target Ship 3 : ', tr4cri)
+plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 3")
+plt.plot(tstp,tr4cri)
+plt.xlabel('Time (hr)')
+plt.ylabel('CRI')
+plt.show()
+
+
+print('----------------------------------------------------------------------')
+
+print('######################################################################')
+print('######################################################################')
+print('*******************The CRI Index wrt Target Ship 5 *******************')
+
+tr5cri=[]
+
+for i in range(5):
+    CRI_5=CRI_FunExe.CRI_call(osv, t5sv, osxl[i], osyl[i], t5sxl[i], t5syl[i], osa, t5sa)
+    tr5cri.append(CRI_5)
+
+print('CRI index for Target Ship 3 : ', tr5cri)
+plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 3")
+plt.plot(tstp,tr5cri)
+plt.xlabel('Time (hr)')
+plt.ylabel('CRI')
+plt.show()
+
+
+print('----------------------------------------------------------------------')

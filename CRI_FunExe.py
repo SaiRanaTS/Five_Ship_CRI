@@ -108,8 +108,8 @@ def CRI_call(Own_Ship_v, Trg_Ship_v, Own_Ship_Xpos, Own_Ship_Ypos, Trg_Ship_Xpos
     # Function test for MF TCPA
 
     MF_TC = CRI_Functions.MF_TCPA(TCPA, t1_value, t2_value)
-    #print('---------------------------------------------')
-    #print('The Membership Function for TCPA is : ', MF_TC)
+    print('---------------------------------------------')
+    print('The Membership Function for TCPA is : ', MF_TC)
 
     # Function test for MF Relative Distance
 
@@ -122,8 +122,8 @@ def CRI_call(Own_Ship_v, Trg_Ship_v, Own_Ship_Xpos, Own_Ship_Ypos, Trg_Ship_Xpos
     #print('The Membership Function for relative bearing is : ', MF_B)
 
     MF_DCPAz = CRI_Functions.MF_DCPA(DCPA, d1, d2)
-    #print('---------------------------------------------')
-    #print('The Membership Function for DCPA is : ', MF_DCPAz)
+    print('---------------------------------------------')
+    print('The Membership Function for DCPA is : ', MF_DCPAz)
 
     MF_Kz = CRI_Functions.MF_K(k, Trg_Ship_ang, Own_Ship_ang)
     #print('---------------------------------------------')
