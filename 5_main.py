@@ -64,16 +64,16 @@ t3sv = 10
 t3sa = 290
 t3sl = 100
 
-t4sx = 5
-t4sy = 2
+t4sx = 6
+t4sy = 3
 t4sv = 10
 t4sa = 140
 t4sl = 100
 
-t5sx = 3
-t5sy = 1
-t5sv = 10
-t5sa = 60
+t5sx = 2
+t5sy = 3
+t5sv = 15
+t5sa = 90
 t5sl = 100
 # print('The number of Target Ships are : ', S_No) # Mutli Ship Under construction
 
@@ -345,8 +345,8 @@ for i in range(5):
     CRI_4=CRI_FunExe.CRI_call(osv, t4sv, osxl[i], osyl[i], t4sxl[i], t4syl[i], osa, t4sa)
     tr4cri.append(CRI_4)
 
-print('CRI index for Target Ship 3 : ', tr4cri)
-plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 3")
+print('CRI index for Target Ship 4 : ', tr4cri)
+plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 4")
 plt.plot(tstp,tr4cri)
 plt.xlabel('Time (hr)')
 plt.ylabel('CRI')
@@ -365,8 +365,8 @@ for i in range(5):
     CRI_5=CRI_FunExe.CRI_call(osv, t5sv, osxl[i], osyl[i], t5sxl[i], t5syl[i], osa, t5sa)
     tr5cri.append(CRI_5)
 
-print('CRI index for Target Ship 3 : ', tr5cri)
-plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 3")
+print('CRI index for Target Ship 5 : ', tr5cri)
+plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 5")
 plt.plot(tstp,tr5cri)
 plt.xlabel('Time (hr)')
 plt.ylabel('CRI')
