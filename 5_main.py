@@ -163,10 +163,10 @@ for i in range(steps):
 print(osxl)
 print(osyl)
 
-sine_dego = math.sin(math.radians(osa))
-cos_dego = math.cos(math.radians(osa))
-u = 10 * sine_dego
-v = 10 * cos_dego
+sine_dego = math.sin(math.radians(65))
+cos_dego = math.cos(math.radians(65))
+z0 = 11 * sine_dego
+p0 = 11 * cos_dego
 
 sine_degt1 = math.sin(math.radians(t1sa))
 cos_degt1 = math.cos(math.radians(t1sa))
@@ -195,50 +195,59 @@ z5 = 10 * sine_degt5
 p5 = 10 * cos_degt5
 
 
-Q=plt.quiver(osxl, osyl, u, v, color = 'blue', pivot = 'middle')
-plt.quiverkey(Q,0.75,1.02,1, "Own Ship",labelpos="E")
-plt.plot(osxl,osyl, linestyle='dashed', color = 'blue',label='OS Path' )
-n = [1,2,3,4,5]
+# Q=plt.quiver(osxl, osyl, z0, p0, color = 'blue', pivot = 'middle')
+# plt.quiverkey(Q,0.75,1.06,1, "Own Ship",labelpos="E")
+# plt.plot(osxl,osyl, linestyle='dashed', color = 'blue',label='OS Path' )
+# for i in range(steps):
+#     dta1 = "OS: P"+ str(i+1)
+#     plt.text((osxl[i]+0.5), osyl[i],dta1)
+
+
+X=plt.quiver(osxl, osyl , z0, p0, color = 'blue', pivot = 'middle')
+plt.quiverkey(X,0.75,1.06,1, "Own Ship",labelpos="E")
+plt.plot(osxl,osyl, linestyle='dashed',label='OS Path')
 for i in range(steps):
-    dta1 = "OS: P"+ str(i+1)
-    plt.text((osxl[i]+0.5), osyl[i],dta1)
-
-
-
-P=plt.quiver(t1sxl, t1syl , z1, p1, color = 'red', pivot = 'middle')
-plt.quiverkey(P,0.75,1.06,1, "Target ship",labelpos="E")
-plt.plot(t1sxl,t1syl, linestyle='dashed',label='TS1 Path')
-for i in range(steps):
-    dta2 = "TS1: P"+ str(i+1)
-    plt.text((t1sxl[i]+0.5), t1syl[i],dta2)
-
-
-R=plt.quiver(t2sxl, t2syl , z2, p2, color = 'red', pivot = 'middle')
-plt.quiverkey(R,0.75,1.06,1, "Target ship",labelpos="E")
-plt.plot(t2sxl,t2syl, linestyle='dashed',label='TS2 Path')
-for i in range(steps):
-    dta3 = "TS2: P"+ str(i+1)
-    plt.text((t2sxl[i]+0.5), t2syl[i],dta3)
+    dta2 = "OS: P"+ str(i+1)
+    plt.text((osxl[i]+0.5), osyl[i],dta2)
 
 
 
 
-S=plt.quiver(t3sxl, t3syl , z3, p3, color = 'red', pivot = 'middle')
-plt.quiverkey(S,0.75,1.06,1, "Target ship",labelpos="E")
-plt.plot(t3sxl,t3syl, linestyle='dashed',label='TS3 Path')
-for i in range(steps):
-    dta4 = "TS3: P"+ str(i+1)
-    plt.text((t3sxl[i]+0.5), t3syl[i],dta4)
+#
+# P=plt.quiver(t1sxl, t1syl , z1, p1, color = 'red', pivot = 'middle')
+# plt.quiverkey(P,0.75,1.06,1, "Target ship",labelpos="E")
+# plt.plot(t1sxl,t1syl, linestyle='dashed',label='TS1 Path')
+# for i in range(steps):
+#     dta2 = "TS1: P"+ str(i+1)
+#     plt.text((t1sxl[i]+0.5), t1syl[i],dta2)
 
 
-T=plt.quiver(t4sxl, t4syl , z4, p4, color = 'red', pivot = 'middle')
-plt.quiverkey(T,0.75,1.06,1, "Target ship",labelpos="E")
-plt.plot(t4sxl,t4syl, linestyle='dashed',label='TS4 Path')
-for i in range(steps):
-    dta5 = "TS4: P"+ str(i+1)
-    plt.text((t4sxl[i]+0.5), t4syl[i],dta5)
+# R=plt.quiver(t2sxl, t2syl , z2, p2, color = 'red', pivot = 'middle')
+# plt.quiverkey(R,0.75,1.06,1, "Target ship",labelpos="E")
+# plt.plot(t2sxl,t2syl, linestyle='dashed',label='TS2 Path')
+# for i in range(steps):
+#     dta3 = "TS2: P"+ str(i+1)
+#     plt.text((t2sxl[i]+0.5), t2syl[i],dta3)
 
 
+#
+
+# S=plt.quiver(t3sxl, t3syl , z3, p3, color = 'red', pivot = 'middle')
+# plt.quiverkey(S,0.75,1.06,1, "Target ship",labelpos="E")
+# plt.plot(t3sxl,t3syl, linestyle='dashed',label='TS3 Path')
+# for i in range(steps):
+#     dta4 = "TS3: P"+ str(i+1)
+#     plt.text((t3sxl[i]+0.5), t3syl[i],dta4)
+#
+#
+# T=plt.quiver(t4sxl, t4syl , z4, p4, color = 'red', pivot = 'middle')
+# plt.quiverkey(T,0.75,1.06,1, "Target ship",labelpos="E")
+# plt.plot(t4sxl,t4syl, linestyle='dashed',label='TS4 Path')
+# for i in range(steps):
+#     dta5 = "TS4: P"+ str(i+1)
+#     plt.text((t4sxl[i]+0.5), t4syl[i],dta5)
+
+#
 U=plt.quiver(t5sxl, t5syl , z5, p5, color = 'red', pivot = 'middle')
 plt.quiverkey(U,0.75,1.06,1, "Target ship",labelpos="E")
 plt.plot(t5sxl,t5syl, linestyle='dashed',label='TS5 Path')
@@ -254,123 +263,160 @@ plt.legend(bbox_to_anchor=(1.1, 1.05))
 plt.grid()
 plt.show()
 
-
-###################################################################################################
-#:-)(-::-)(-::-)(-::-)(-::-)(-::-)(-: CRI Target Ship 1 - Execution Call :-)(-::-)(-::-)(-::-)(-::-)(-::-)(-:
-###################################################################################################
-
-print('Own Ship Pos:')
-print("X pos : ",osxl)
-print("Y pos : ",osyl)
-
-print('------------------------------')
-
-print('Target Ship 1  Pos:')
-print("X pos : ",t1sxl)
-print("Y pos : ",t1syl)
-
-print('-------------------------------')
-
-
-
-
-print('######################################################################')
-print('######################################################################')
-print('*******************The CRI Index wrt Target Ship 1 *******************')
-
-tr1cri=[]
-
-for i in range(5):
-    CRI_1=CRI_FunExe.CRI_call(osv, t1sv, osxl[i], osyl[i], t1sxl[i], t1syl[i], osa, t1sa)
-    tr1cri.append(CRI_1)
-
-print('CRI index for Target Ship 1 : ', tr1cri)
-
-plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 1")
-plt.plot(tstp,tr1cri)
-plt.xlabel('Time (hr)')
-plt.ylabel('CRI')
-plt.show()
-
-
-print('----------------------------------------------------------------------')
-
-print('######################################################################')
-print('######################################################################')
-print('*******************The CRI Index wrt Target Ship 2 *******************')
-
-tr2cri=[]
-
-for i in range(5):
-    CRI_2=CRI_FunExe.CRI_call(osv, t2sv, osxl[i], osyl[i], t2sxl[i], t2syl[i], osa, t2sa)
-    tr2cri.append(CRI_2)
-
-print('CRI index for Target Ship 2 : ', tr2cri)
-plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 2")
-plt.plot(tstp,tr2cri)
-plt.xlabel('Time (hr)')
-plt.ylabel('CRI')
-plt.show()
-
-
-print('----------------------------------------------------------------------')
-
-print('######################################################################')
-print('######################################################################')
-print('*******************The CRI Index wrt Target Ship 3 *******************')
-
-tr3cri=[]
-
-for i in range(5):
-    CRI_3=CRI_FunExe.CRI_call(osv, t3sv, osxl[i], osyl[i], t3sxl[i], t3syl[i], osa, t3sa)
-    tr3cri.append(CRI_3)
-
-print('CRI index for Target Ship 3 : ', tr3cri)
-plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 3")
-plt.plot(tstp,tr3cri)
-plt.xlabel('Time (hr)')
-plt.ylabel('CRI')
-plt.show()
-
-
-print('----------------------------------------------------------------------')
-
-print('######################################################################')
-print('######################################################################')
-print('*******************The CRI Index wrt Target Ship 4 *******************')
-
-tr4cri=[]
-
-for i in range(5):
-    CRI_4=CRI_FunExe.CRI_call(osv, t4sv, osxl[i], osyl[i], t4sxl[i], t4syl[i], osa, t4sa)
-    tr4cri.append(CRI_4)
-
-print('CRI index for Target Ship 4 : ', tr4cri)
-plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 4")
-plt.plot(tstp,tr4cri)
-plt.xlabel('Time (hr)')
-plt.ylabel('CRI')
-plt.show()
-
-
-print('----------------------------------------------------------------------')
-
-print('######################################################################')
-print('######################################################################')
-print('*******************The CRI Index wrt Target Ship 5 *******************')
-
-tr5cri=[]
-
-for i in range(5):
-    CRI_5=CRI_FunExe.CRI_call(osv, t5sv, osxl[i], osyl[i], t5sxl[i], t5syl[i], osa, t5sa)
-    tr5cri.append(CRI_5)
-
-print('CRI index for Target Ship 5 : ', tr5cri)
-plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 5")
-plt.plot(tstp,tr5cri)
-plt.xlabel('Time (hr)')
-plt.ylabel('CRI')
-plt.show()
-
-
-print('----------------------------------------------------------------------')
+#
+# ###################################################################################################
+# #:-)(-::-)(-::-)(-::-)(-::-)(-::-)(-: CRI Target Ship 1 - Execution Call :-)(-::-)(-::-)(-::-)(-::-)(-::-)(-:
+# ###################################################################################################
+#
+# print('Own Ship Pos:')
+# print("X pos : ",osxl)
+# print("Y pos : ",osyl)
+#
+# print('------------------------------')
+#
+# print('Target Ship 1  Pos:')
+# print("X pos : ",t1sxl)
+# print("Y pos : ",t1syl)
+#
+# print('-------------------------------')
+#
+# print('Target Ship 2  Pos:')
+# print("X pos : ",t2sxl)
+# print("Y pos : ",t2syl)
+#
+# print('-------------------------------')
+#
+# print('Target Ship 3  Pos:')
+# print("X pos : ",t3sxl)
+# print("Y pos : ",t3syl)
+#
+# print('-------------------------------')
+#
+# print('Target Ship 4  Pos:')
+# print("X pos : ",t4sxl)
+# print("Y pos : ",t4syl)
+#
+# print('-------------------------------')
+#
+# print('Target Ship 5  Pos:')
+# print("X pos : ",t5sxl)
+# print("Y pos : ",t5syl)
+#
+# print('-------------------------------')
+#
+# print('######################################################################')
+# print('######################################################################')
+# print('*******************The CRI Index wrt Target Ship 1 *******************')
+#
+# tr1cri=[]
+#
+# for i in range(5):
+#     CRI_1=CRI_FunExe.CRI_call(osv, t1sv, osxl[i], osyl[i], t1sxl[i], t1syl[i], osa, t1sa)
+#     tr1cri.append(CRI_1)
+#
+# print('CRI index for Target Ship 1 : ', tr1cri)
+#
+# plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 1")
+# plt.plot(tstp,tr1cri)
+# plt.xlabel('Time (hr)')
+# plt.ylabel('CRI')
+# plt.show()
+#
+#
+# print('----------------------------------------------------------------------')
+#
+# print('######################################################################')
+# print('######################################################################')
+# print('*******************The CRI Index wrt Target Ship 2 *******************')
+#
+# tr2cri=[]
+#
+# for i in range(5):
+#     CRI_2=CRI_FunExe.CRI_call(osv, t2sv, osxl[i], osyl[i], t2sxl[i], t2syl[i], osa, t2sa)
+#     tr2cri.append(CRI_2)
+#
+# print('CRI index for Target Ship 2 : ', tr2cri)
+# plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 2")
+# plt.plot(tstp,tr2cri)
+# plt.xlabel('Time (hr)')
+# plt.ylabel('CRI')
+# plt.show()
+#
+#
+# print('----------------------------------------------------------------------')
+#
+# print('######################################################################')
+# print('######################################################################')
+# print('*******************The CRI Index wrt Target Ship 3 *******************')
+#
+# tr3cri=[]
+#
+# for i in range(5):
+#     CRI_3=CRI_FunExe.CRI_call(osv, t3sv, osxl[i], osyl[i], t3sxl[i], t3syl[i], osa, t3sa)
+#     tr3cri.append(CRI_3)
+#
+# print('CRI index for Target Ship 3 : ', tr3cri)
+# plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 3")
+# plt.plot(tstp,tr3cri)
+# plt.xlabel('Time (hr)')
+# plt.ylabel('CRI')
+# plt.show()
+#
+#
+# print('----------------------------------------------------------------------')
+#
+# print('######################################################################')
+# print('######################################################################')
+# print('*******************The CRI Index wrt Target Ship 4 *******************')
+#
+# tr4cri=[]
+#
+# for i in range(5):
+#     CRI_4=CRI_FunExe.CRI_call(osv, t4sv, osxl[i], osyl[i], t4sxl[i], t4syl[i], osa, t4sa)
+#     tr4cri.append(CRI_4)
+#
+# print('CRI index for Target Ship 4 : ', tr4cri)
+# plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 4")
+# plt.plot(tstp,tr4cri)
+# plt.xlabel('Time (hr)')
+# plt.ylabel('CRI')
+# plt.show()
+#
+#
+# print('----------------------------------------------------------------------')
+#
+# print('######################################################################')
+# print('######################################################################')
+# print('*******************The CRI Index wrt Target Ship 5 *******************')
+#
+# tr5cri=[]
+#
+# for i in range(5):
+#     CRI_5=CRI_FunExe.CRI_call(osv, t5sv, osxl[i], osyl[i], t5sxl[i], t5syl[i], osa, t5sa)
+#     tr5cri.append(CRI_5)
+#
+# print('CRI index for Target Ship 5 : ', tr5cri)
+# plt.title("CRI index vs Time Plot for Own Ship wrt Target Ship 5")
+# plt.plot(tstp,tr5cri)
+# plt.xlabel('Time (hr)')
+# plt.ylabel('CRI')
+# plt.show()
+#
+#
+# print('----------------------------------------------------------------------')
+#
+# print('----------------------------------------------------------------------')
+#
+#
+# plt.title("CRI index vs Time Plot for Own Ship wrt all Target Ships")
+#
+# plt.plot(tstp,tr1cri,label='TS1 CRI')
+# plt.plot(tstp,tr2cri,label='TS2 CRI')
+# plt.plot(tstp,tr3cri,label='TS3 CRI')
+# plt.plot(tstp,tr4cri,label='TS4 CRI')
+# plt.plot(tstp,tr5cri,label='TS5 CRI')
+# plt.xlabel('Time (hr)')
+# plt.ylabel('CRI')
+# plt.legend(bbox_to_anchor=(1.1, 1.05))
+# plt.grid()
+# plt.show()
